@@ -53,3 +53,57 @@ newParagraph.style.padding = "10px";
 newParagraph.style.fontSize = "24px";
 
 document.body.appendChild(newParagraph);
+
+let newHr = document.createElement('hr');
+
+newHr.id = "hr-separator";
+
+document.body.appendChild(newHr);
+
+let learningPart = document.createElement('p');
+
+learningPart.id = "learning-paragraph";
+learningPart.innerHTML = "In this lesson we'll be learning about: ";
+learningPart.style.marginLeft = "30%";
+learningPart.style.marginRight = "30%";
+learningPart.style.fontSize = "23px";
+
+document.body.appendChild(learningPart);
+
+//Declaring a new variable to create a new element just like we did in the two previous examples.
+//This time we'll be creating a list.
+
+/* let listToDo = document.createElement('li');
+let secondList = document.createElement('li');
+let thirdList = document.createElement('li');
+
+
+
+listToDo.id = "todo-list";
+listToDo.innerHTML = "How to declare a variable";
+secondList.innerHTML = "How to write a function";
+thirdList.innerHTML = "How to create an array";
+
+
+
+listToDo.style.marginLeft = "30%";
+listToDo.style.marginRight = "30%";
+listToDo.style.fontFamily = "Times New Roman";
+
+secondList.style.marginLeft = "30%";
+secondList.style.marginRight = "30%";
+secondList.style.fontFamily = "Times New Roman";
+
+thirdList.style.marginLeft = "30%";
+thirdList.style.marginRight = "30%";
+thirdList.style.fontFamily = "Times New Roman";
+
+
+document.body.appendChild(listToDo);
+document.body.appendChild(secondList);
+document.body.appendChild(thirdList);
+*/
+
+
+
+
