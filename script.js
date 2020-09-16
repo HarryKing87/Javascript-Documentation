@@ -104,7 +104,7 @@ document.body.appendChild(secondList);
 document.body.appendChild(thirdList);
 */
 
-let btn = document.createElement('button');
+let btn = document.createElement("button");
 
 btn.id = "changing-color-button";
 btn.innerHTML("Blue Button");
@@ -114,6 +114,7 @@ turnButtonRed = () => {
     btn.style.color = "white";
     btn.innerHTML = "Red Button";
 }
+
 btn.onclick = turnButtonRed();
 document.body.appendChild(btn);
 
