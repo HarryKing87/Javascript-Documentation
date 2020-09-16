@@ -104,6 +104,7 @@ document.body.appendChild(secondList);
 document.body.appendChild(thirdList);
 */
 
+//test
 let btn = document.createElement("BUTTON");
 
 btn.id = "changing-color-button";
