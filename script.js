@@ -146,7 +146,7 @@ showNumber = () => {
 buttonPlace.onclick = showNumber;
 
 
-document.body.appendChild('textPladce');
+document.body.appendChild('textPlace');
 document.body.appendChild('buttonPlace');
 
 
