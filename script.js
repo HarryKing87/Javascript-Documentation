@@ -123,7 +123,27 @@ btn.onclick = turnButtonRed;
 
 document.body.appendChild(btn);
 
+// MATH METHODS
+// There are tons of ways to create a program that calculates numbers 
+// and then chooses a specific one or a random. Such a program
+// can be written with the help of math methods. 
+// Math methods are used to show numbers and also randomize
+// their sequence. Let me show you.
 
+// Math.random() => Generates a decimal between 0 and 1
+// Math.floor() => Rounds the decimal to the closest whole number.
+
+// For example we'd like to make a program generate a number
+// between 1 and 6
+
+let textPlace = document.getElementById('textarea');
+let buttonPlace = document.getElementById('textButton');
+
+showNumber = () => {
+    textPlace.innerHTML = Math.floor(Math.random() * 6 + 1);
+}
+
+buttonPlace.onclick = showNumber();
 
 
 
