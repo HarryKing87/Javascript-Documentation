@@ -143,7 +143,7 @@ showNumber = () => {
     textPlace.innerHTML = Math.floor(Math.random() * 6 + 1);
 }
 
-buttonPlace.onclick = showNumber();
+buttonPlace.onclick = showNumber;
 
 
 
