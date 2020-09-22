@@ -144,18 +144,35 @@ document.body.appendChild(btn);
 // For example we'd like to make a program generate a number
 // between 1 and 6
 
-/*
-let numbers = ['1', '2', '3', '4', '5', '6'];
-var randomNumbers = Math.floor(Math.random() * numbers.length + 1);
+
+// We first "collect" the ids from each element we'd like to edit
 let button = document.getElementById('textButton');
 let text = document.getElementById('textarea');
 
+// Secondly, we'd like to generate a new number everytime 
+// we push the button. So, everytime we click (button.onclick)
+// the button, a function will fire.
+// The function will contain a variety of things.
+
 button.onclick = function() {
+    // This is a variable that contains an array of numbers from 1 to 6.
+    
+    let numbers = ['1', '2', '3', '4', '5', '6'];
+    
+    // The randomNumbers variable contains the methods
+    // we used above in the previous example (random & floor)
+    // With this way, we generate a random number from 1 to 6
+    // and then we take this number and reduce it to the clearest decimal.
+    // After we do that, the number will be changed in the innerHTML in the whole sentence.
+
+    var randomNumbers = Math.floor(Math.random() * numbers.length + 1);
     text.innerHTML = "The generated number is " + randomNumbers;
 };
+
+// At last, we append everything to be displayed in the HTML file.
 
 document.body.appendChild(button);
 document.body.appendChild(text);
 document.body.appendChild(numbers);
 document.body.appendChild(randomNumbers);
-*/
+
