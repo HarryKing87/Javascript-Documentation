@@ -1,4 +1,4 @@
-//GITHUB
+//LOCALLY
 /* We'd like to create a new HTML element in the index.html file...
 So, I've first created a variable (newHeading), that nests inside a new 
 element creation. Basically, I tell the program to create a new element (createElement),
@@ -105,19 +105,27 @@ document.body.appendChild(secondList);
 document.body.appendChild(thirdList);
 */
 
-//test
+
+
 let btn = document.createElement("button");
 
 btn.id = "button-new";
 btn.innerHTML = "Blue Button";
 btn.style.backgroundColor = "blue";
 btn.style.color = "white";
+btn.style.marginLeft = "30%";
+btn.style.marginRight = "30%";
 
 turnButtonRed = () => {
     btn.style.backgroundColor = "red";
     btn.style.color = "white";
-    btn.innerHTML = "Red Button"
-}
+    btn.style.marginLeft = "30%";
+    btn.style.marginRight = "30%";
+    btn.style.border = "1px solid black";
+    btn.style.fontFamily = "Roboto";
+    btn.style.fontSize = "18px";
+    btn.innerHTML = "Red Button";
+};
 
 btn.onclick = turnButtonRed;
 
@@ -136,17 +144,18 @@ document.body.appendChild(btn);
 // For example we'd like to make a program generate a number
 // between 1 and 6
 
-let textPlace = document.getElementById('textarea');
-let buttonPlace = document.getElementById('textButton');
+/*
+let numbers = ['1', '2', '3', '4', '5', '6'];
+var randomNumbers = Math.floor(Math.random() * numbers.length + 1);
+let button = document.getElementById('textButton');
+let text = document.getElementById('textarea');
 
-showNumber = () => {
-    textPlace.innerHTML = Math.floor(Math.random() * 6 + 1);
-}
+button.onclick = function() {
+    text.innerHTML = "The generated number is " + randomNumbers;
+};
 
-buttonPlace.onclick = showNumber;
-
-
-document.body.appendChild('textPlace');
-document.body.appendChild('buttonPlace');
-
-
+document.body.appendChild(button);
+document.body.appendChild(text);
+document.body.appendChild(numbers);
+document.body.appendChild(randomNumbers);
+*/

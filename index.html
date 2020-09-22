@@ -1,4 +1,4 @@
-<!--GITHUB-->
+<!--LOCALLY-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,13 +6,28 @@
 </head>
 <body>
     <script src="script.js"></script>
-    
 <ul>
     <li style=" font-family: 'Courier New', Courier, monospace; margin-left: 30%; margin-right: 30%; ">How to declare a variable</li>
     <li style=" font-family: 'Courier New', Courier, monospace; margin-left: 30%; margin-right: 30%; ">How to write a function</li>
     <li style=" font-family: 'Courier New', Courier, monospace; margin-left: 30%; margin-right: 30%; ">How to create an array</li>
 </ul>
-<p id="textButton" style="border:1px solid black; padding:10px; font-size: 15px; display: inline-block;">Button</p>
-<textarea id="textarea" name="w3review" rows="4" cols="50"></textarea>
+
+<button id="textButton" style="border:1px solid black; padding:10px; font-size: 15px; display: inline-block;"><a>Button</a></button>
+<p id="textarea">Generated Number</p>
+
+
+<script>
+
+    //Array
+
+    let numbers = ['1', '2', '3', '4', '5', '6'];
+    var randomNumbers = Math.floor(Math.random() * numbers.length + 1);
+
+    document.getElementById('textButton').onclick = function() {
+        document.getElementById('textarea').innerHTML = "The generated number is " + randomNumbers;
+    }
+
+</script>
+
 </body>
 </html>
