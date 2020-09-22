@@ -20,10 +20,11 @@
 
     //Array
 
-    let numbers = ['1', '2', '3', '4', '5', '6'];
-    var randomNumbers = Math.floor(Math.random() * numbers.length + 1);
+    
 
     document.getElementById('textButton').onclick = function() {
+        let numbers = ['1', '2', '3', '4', '5', '6'];
+    var randomNumbers = Math.floor(Math.random() * numbers.length + 1);
         document.getElementById('textarea').innerHTML = "The generated number is " + randomNumbers;
     }
 
