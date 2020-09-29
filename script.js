@@ -176,3 +176,61 @@ document.body.appendChild(text);
 document.body.appendChild(numbers);
 document.body.appendChild(randomNumbers);
 
+//UNDERSTANDING OBJECTS AND HOW THEY WORK
+
+/* In this example, I'm going to be making a short tutorial on
+* What is an object
+* Object Syntax
+* Short Example
+
+Objects can be assigned to variables just like any JavaScript type.
+We use curly braces, {}, to designate an object literal:
+
+let spaceship = {}; ** spaceship is an empty object
+
+We fill an object with unordered data. 
+This data is organized into key-value pairs. 
+A key is like a variable name that points to a location in memory 
+that holds a value.
+
+** An object literal with two key-value pairs
+let spaceship = {
+  'Fuel Type': 'diesel',
+  color: 'silver'
+};
+
+The spaceship object has two properties Fuel Type and color.
+'Fuel Type' has quotation marks because it contains a space character.
+
+Let's get into some examples...This time we're going 
+to make another type of 'Fuel Type', the Turbo Power
+*/
+
+// This is an object, called fasterShip...
+const fasterShip = {
+    color: "silver",
+    "Fuel Type": "Turbo Fuel",
+    name: "Jonathan"
+  };
+  
+  /* There are two ways we can access an object’s property. 
+  Let’s explore the first way— dot notation, ..
+  
+  You’ve used dot notation to access the properties and methods 
+  of built-in objects and data instances: 
+  
+  'hello'.length; ** For example, this returns 5
+  
+  We can do the exact same thing with an object and its keys...
+  
+  For example...
+  */
+  
+  fasterShip.color;
+  fasterShip["Fuel Type"];
+  
+  // The upper two examples will give us a result of silver and Turbo Fuel
+  // But, if we enter a key that is not defined in the object model
+  // then, the result will be "undefined".
+  // We can always log the results if we need to see the results
+  
