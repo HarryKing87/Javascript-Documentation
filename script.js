@@ -1,4 +1,5 @@
-//LOCALLY
+//GITHUB
+//Coding_Harry
 /* We'd like to create a new HTML element in the index.html file...
 So, I've first created a variable (newHeading), that nests inside a new 
 element creation. Basically, I tell the program to create a new element (createElement),
