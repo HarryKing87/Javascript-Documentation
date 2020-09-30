@@ -316,7 +316,7 @@ reassignment
 */
 
 //This is a simple object
-let spaceship = {
+let Thespaceship = {
   'Fuel Type' : 'Turbo Fuel',
   homePlanet : 'Earth'
 };
@@ -337,9 +337,9 @@ let remotelyDisable = obj => {
 
 // Referencing the two functions, we'll get a whole new 
 // object, with new keys...
-greenEnergy(spaceship);
-remotelyDisable(spaceship);
-console.log(spaceship);
+greenEnergy(Thespaceship);
+remotelyDisable(Thespaceship);
+console.log(Thespaceship);
 
 /* 
 RESULT
@@ -350,3 +350,39 @@ RESULT
 
   
 */
+
+//LOOPING THROUGH OBJECTS 
+let spaceship = {
+  crew: {
+  captain: { 
+      name: 'Lily', 
+      degree: 'Computer Engineering', 
+      cheerTeam() { console.log('You got this!') } 
+      },
+  'chief officer': { 
+      name: 'Dan', 
+      degree: 'Aerospace Engineering', 
+      agree() { console.log('I agree, captain!') } 
+      },
+  medic: { 
+      name: 'Clementine', 
+      degree: 'Physics', 
+      announce() { console.log(`Jets on!`) } },
+  translator: {
+      name: 'Shauna', 
+      degree: 'Conservation Science', 
+      powerFuel() { console.log('The tank is full!') } 
+      }
+  }
+}; 
+
+// What we do basically is, that we create a new variable in order for us to have access to the whole crew with one variable...
+//For example, we declared variable 'crewMember', that represents everything in the object(the small inherited objects('captain, 'chief officer', medic, translator))
+for (let crewMember in spaceship.crew) {
+console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
+}
+
+//The exact same thing we're doing here with the inversed order...
+for (let crewMember in spaceship.crew) {
+console.log(`${spaceship.crew[crewMember].name}: ${spaceship.crew[crewMember].degree}`);
+}
