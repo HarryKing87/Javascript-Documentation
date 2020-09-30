@@ -282,3 +282,71 @@ const cafeteria = {
 }
 };
 cafeteria.greeting;
+
+//OBJECT PASS BY REFERENCE
+
+/* Often we can declare an object with the "let" keyword
+and then be able to change the whole object and its keys
+with a brand new one. Objects are passed by reference. 
+This means when we pass a variable assigned to an object
+into a function as an argument, the computer interprets 
+the parameter name as pointing to the space in memory 
+holding that object. As a result, functions which change 
+object properties actually mutate the object permanently 
+(even when the object is assigned to a const variable).
+
+**EXAMPLE**
+
+const spaceship = {
+  homePlanet : 'Earth',
+  color : 'silver'
+};
+
+let paintIt = obj => {
+  obj.color = 'glorious gold'
+};
+
+paintIt(spaceship);
+
+spaceship.color // Returns 'glorious gold'
+
+Down here, we'll create a live example of an object 
+reassignment
+
+*/
+
+//This is a simple object
+let spaceship = {
+  'Fuel Type' : 'Turbo Fuel',
+  homePlanet : 'Earth'
+};
+
+// We create a new function with the obj(object's name)
+// and as a parameter, we type in the key we'd like to 
+// change...In this case, we'd like to change the 
+// Fuel Type into 'Avocado Oil'
+let greenEnergy = obj => {
+  obj['Fuel Type'] = 'avocado oil';
+}
+
+// We then create another function, that assigns a new key
+// instead of changing one, as we did above...
+let remotelyDisable = obj => {
+  obj.disabled = true;
+}
+
+// Referencing the two functions, we'll get a whole new 
+// object, with new keys...
+greenEnergy(spaceship);
+remotelyDisable(spaceship);
+console.log(spaceship);
+
+/* 
+RESULT
+
+{ 'Fuel Type': 'avocado oil',
+  homePlanet: 'Earth',
+  disabled: true }
+
+  
+*/
