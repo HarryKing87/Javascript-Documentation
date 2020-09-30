@@ -1,5 +1,4 @@
-//GITHUB
-//Coding_Harry
+//LOCALLY
 /* We'd like to create a new HTML element in the index.html file...
 So, I've first created a variable (newHeading), that nests inside a new 
 element creation. Basically, I tell the program to create a new element (createElement),
@@ -405,8 +404,6 @@ for (let crewMember in spaceship.crew) {
 console.log(`${spaceship.crew[crewMember].name}: ${spaceship.crew[crewMember].degree}`);
 }
 
-
-//FIX THIS OBJECT LOOPING
-for (let crewMember in spaceship.crew) {
-  console.log(`${spaceship.engines[crewMember].name}: ${spaceship.engines[crewMember].power}`);
+for (let enginesStuff in spaceship.engines) {
+  console.log(`${enginesStuff}: ${spaceship.engines[enginesStuff].name}`);
 }
