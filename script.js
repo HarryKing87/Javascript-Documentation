@@ -373,6 +373,23 @@ let spaceship = {
       degree: 'Conservation Science', 
       powerFuel() { console.log('The tank is full!') } 
       }
+  },
+
+  engines: {
+    bigEngine: {
+      name: 'Lotus',
+      power: '120PS'
+    },
+
+    mediumEngine: {
+      name:'Macro',
+      power:'100PS'
+    },
+
+    smallEngine: {
+      name: 'Minor',
+      power:'80PS'
+    }
   }
 }; 
 
@@ -385,4 +402,10 @@ console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
 //The exact same thing we're doing here with the inversed order...
 for (let crewMember in spaceship.crew) {
 console.log(`${spaceship.crew[crewMember].name}: ${spaceship.crew[crewMember].degree}`);
+}
+
+
+//FIX THIS OBJECT LOOPING
+for (let crewMember in spaceship.crew) {
+  console.log(`${spaceship.engines[crewMember].name}: ${spaceship.engines[crewMember].power}`);
 }
