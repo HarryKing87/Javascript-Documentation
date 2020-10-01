@@ -394,7 +394,7 @@ let spaceship = {
 }; 
 
 // What we do basically is, that we create a new variable in order for us to have access to the whole crew with one variable...
-//For example, we declared variable 'crewMember', that represents everything in the object(the small inherited objects('captain, 'chief officer', medic, translator))
+// For example, we declared variable 'crewMember', that represents everything in the object(the small inherited objects('captain, 'chief officer', medic, translator))
 for (let crewMember in spaceship.crew) {
 console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
 }
