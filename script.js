@@ -1,4 +1,4 @@
-//GITHUB
+//LOCALLY
 /* We'd like to create a new HTML element in the index.html file...
 So, I've first created a variable (newHeading), that nests inside a new 
 element creation. Basically, I tell the program to create a new element (createElement),
@@ -394,7 +394,7 @@ let spaceship = {
 }; 
 
 // What we do basically is, that we create a new variable in order for us to have access to the whole crew with one variable...
-// For example, we declared variable 'crewMember', that represents everything in the object(the small inherited objects('captain, 'chief officer', medic, translator))
+//For example, we declared variable 'crewMember', that represents everything in the object(the small inherited objects('captain, 'chief officer', medic, translator))
 for (let crewMember in spaceship.crew) {
 console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
 }
@@ -407,3 +407,66 @@ console.log(`${spaceship.crew[crewMember].name}: ${spaceship.crew[crewMember].de
 for (let enginesStuff in spaceship.engines) {
   console.log(`${enginesStuff}: ${spaceship.engines[enginesStuff].name}`);
 }
+
+// ADVANCED OBJECTS
+
+/*
+Objects are collections of related data and functionality. We store that functionality in methods on our objects:
+
+const goat = {
+  dietType: 'herbivore',
+  makeSound() {
+    console.log('baaa');
+  }
+};
+In our goat object we have a .makeSound() method. We can invoke the .makeSound() method on goat.
+
+goat.makeSound(); // Prints baaa
+Nice, we have a goat object that can print baaa to the console. Everything seems to be working fine. What if we wanted to add a new method to our goat object called .diet() that prints the goat‘s dietType?
+
+const goat = {
+  dietType: 'herbivore',
+  makeSound() {
+    console.log('baaa');
+  },
+  diet() {
+    console.log(dietType);
+  }
+};
+goat.diet(); 
+// Output will be "ReferenceError: dietType is not defined"
+That’s strange, why is dietType not defined even though it’s a property of goat? That’s because inside the scope of the .diet() method, we don’t automatically have access to other properties of the goat object.
+
+Here’s where the this keyword comes to the rescue. If we change the .diet() method to use the this, the .diet() works! :
+
+const goat = {
+  dietType: 'herbivore',
+  makeSound() {
+    console.log('baaa');
+  },
+  diet() {
+    console.log(this.dietType);
+  }
+};
+
+goat.diet(); 
+// Output: herbivore
+The this keyword references the calling object which provides access to the calling object’s properties. In the example above, the calling object is goat and by using this we’re accessing the goat object itself, and then the dietType property of goat by using property dot notation.
+
+Let's see an example:
+*/
+
+// We first create a simple object with two simple keys and
+// a function, called provideInfo()
+// The function will return a specific phrase, which 
+// will contain the other two keys (model & energyLevel)
+const robot = {
+  model: '1E78V2',
+  energyLevel: 100,
+  provideInfo() {
+    return 'I am ' + this.model + ' and my current energy level is ' + this.energyLevel;
+  }
+};
+
+console.log(robot.provideInfo());
+
