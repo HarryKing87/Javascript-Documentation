@@ -1,4 +1,4 @@
-//LOCALLY
+//GITHUB
 /* We'd like to create a new HTML element in the index.html file...
 So, I've first created a variable (newHeading), that nests inside a new 
 element creation. Basically, I tell the program to create a new element (createElement),
@@ -553,3 +553,4 @@ console.log(anotherRobot.recharge());
 // No need to worry about what this means for now, but 
 // it’s important to understand that you can cause unwanted
 // side-effects when mutating objects and their properties.
+
