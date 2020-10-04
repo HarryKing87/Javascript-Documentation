@@ -672,7 +672,8 @@ const theBestRobot = {
   get numOfSensors(){
     if(typeof this._numOfSensors === 'number'){
       return this._numOfSensors;
-    } else {
+    } 
+    else {
       return 'Sensors are currently down.'
     }
   },
@@ -691,4 +692,150 @@ console.log(theBestRobot.numOfSensors);
 console.log(theBestRobot._model);
 console.log(theBestRobot._energyLevel);
 
+// FACTORY FUNCTIONS
 
+/*
+So far we’ve been creating objects individually, but there are times where we want to create many instances of an object quickly. Here’s where factory functions come in. A real world factory manufactures multiple copies of an item quickly and on a massive scale. A factory function is a function that returns an object and can be reused to make multiple object instances. Factory functions can also have parameters allowing us to customize the object that gets returned.
+
+Let’s say we wanted to create an object to represent monsters in JavaScript. There are many different types of monsters and we could go about making each monster individually but we can also use a factory function to make our lives easier. To achieve this diabolical plan of creating multiple monsters objects, we can use a factory function that has parameters:
+
+const monsterFactory = (name, age, energySource, catchPhrase) => {
+  return { 
+    name: name,
+    age: age, 
+    energySource: energySource,
+    scare() {
+      console.log(catchPhrase);
+    } 
+  }
+};
+In the monsterFactory function above, it has four parameters and returns an object that has the properties: name, age, energySource, and scare(). To make an object that represents a specific monster like a ghost, we can call monsterFactory with the necessary arguments and assign the return value to a variable:
+
+const ghost = monsterFactory('Ghouly', 251, 'ectoplasm', 'BOO!');
+ghost.scare(); // 'BOO!'
+Now we have a ghost object as a result of calling monsterFactory() with the needed arguments. With monsterFactory in place, we don’t have to create an object literal every time we need a new monster. Instead, we can invoke the monsterFactory function with the necessary arguments to take over the world make a monster for us!
+*/
+
+const robotFactory = (model, mobile) => {
+  return {
+    model: model,
+    mobile: mobile,
+    beep() {
+      console.log('Beep Boop');
+    }
+  }
+}
+
+const tinCan = robotFactory('P-500', true);
+
+tinCan.beep();
+
+
+// We can also do the exact same thing by leaving the object keys by themselves
+// without changing anything...For example...
+
+/*
+
+function robotFactory(model, mobile){
+  return {
+    model,
+    mobile,
+    beep() {
+      console.log('Beep Boop');
+    }
+  }
+}
+
+// To check that the property value shorthand technique worked:
+const newRobot = robotFactory('P-501', false)
+console.log(newRobot.model)
+console.log(newRobot.mobile)
+
+*/
+
+// DESTRUCTURED ASSIGNMENT
+
+/*
+We often want to extract key-value pairs from objects and save them as variables. Take for example the following object:
+
+const vampire = {
+  name: 'Dracula',
+  residence: 'Transylvania',
+  preferences: {
+    day: 'stay inside',
+    night: 'satisfy appetite'
+  }
+};
+If we wanted to extract the residence property as a variable, we could using the following code:
+
+const residence = vampire.residence; 
+console.log(residence); // Prints 'Transylvania' 
+However, we can also take advantage of a destructuring technique called destructured assignment to save ourselves some keystrokes. In destructured assignment we create a variable with the name of an object’s key that is wrapped in curly braces { } and assign to it the object. Take a look at the example below:
+
+const { residence } = vampire; 
+console.log(residence); // Prints 'Transylvania'
+Look back at the vampire object’s properties in the first code example. Then, in the example above, we declare a new variable residence that extracts the value of the residence property of vampire. When we log the value of residence to the console, 'Transylvania' is printed.
+
+We can even use destructured assignment to grab nested properties of an object:
+
+const { day } = vampire.preferences; 
+console.log(day); // Prints 'stay inside'
+
+An example:
+*/
+
+const superRobot = {
+  model: '1E78V2',
+  energyLevel: 100,
+  functionality: {
+    beep() {
+      console.log('Beep Boop');
+    },
+    fireLaser() {
+      console.log('Pew Pew');
+    },
+  }
+};
+
+// We put the name functionality that currently represents the third key of our 
+// object call superRobot.
+const {functionality} = robot;
+
+// We then call the const just above to recall the beep method...
+functionality.beep();
+
+// BUILT-IN OBJECT METHODS
+
+/*
+In the previous exercises we’ve been creating instances of objects that have their own methods. But, we can also take advantage of built-in methods for Objects!
+
+For example, we have access to object instance methods like: .hasOwnProperty(), .valueOf(), and many more! Practice your documentation reading skills and check out: MDN’s object instance documentation.
+
+There are also useful Object class methods such as Object.assign(), Object.entries(), and Object.keys() just to name a few. For a comprehensive list, browse: MDN’s object instance documentation.
+
+Let’s get acquainted with some of these methods and their documentation.
+*/
+
+const lastRobot = {
+	model: 'SAL-1000',
+  mobile: true,
+  sentient: false,
+  armor: 'Steel-plated',
+  energyLevel: 75
+};
+
+// What is missing in the following method call?
+const robotKeys = Object.keys(robot);
+
+console.log(robotKeys);
+
+// Declare robotEntries below this line:
+const robotEntries = Object.entries(robot);
+
+console.log(robotEntries);
+
+// Declare newRobot below this line:
+
+const newRobot = Object.assign({laserBlaster: true, voiceRecognition: true});
+
+console.log(newRobot);
