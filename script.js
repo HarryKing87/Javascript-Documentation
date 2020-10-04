@@ -586,4 +586,109 @@ In a getter, we can access the properties of the calling object using this.
 The functionality of our code is easier for other developers to understand.
 Another thing to keep in mind when using getter (and setter) methods is that properties cannot share the same name as the getter/setter function. If we do so, then calling the method will result in an infinite call stack error. One workaround is to add an underscore before the property name like we did in the example above.
 
+Okay, so let's check on an example:
  */
+
+ // Here we have our object, called advancedObjectRobot
+const advancedObjectRobot = {
+  // Our robot has a model and an energyLevel
+  _model: '1E78V2',
+  _energyLevel: 100,
+  // It also has a single method inside it
+  get energyLevel() {
+    // So here, we check if the energyLevel
+    // (which apparently is 100 is a number)
+    // If it's a number, then the function will
+    // return a string
+    if ( typeof this._energyLevel === 'number')
+    {
+
+    
+    return 'My current energy level is ' + this._energyLevel;
+    }
+    // If not, the function will return another
+    // string
+    else {
+      return 'System malfunction: cannot retrieve energy level';
+    }
+  },
+
+  // I created a brand new getter here, that gets the
+  // model of the robot and if it's valid, it logs
+  // that the model number is valid in the console
+  get model() {
+    if (this._model === '1E78V2')
+    return 'Model Number Valid'
+
+    else 
+    return 'Model Number Invalid, try again...'
+  }
+};
+
+// Here we simply log the methods from the objects...
+console.log(advancedObjectRobot.energyLevel);
+console.log(advancedObjectRobot.model);
+
+// SETTERS
+
+/*
+Along with getter methods, we can also create setter methods which reassign values of existing properties within an object. Let’s see an example of a setter method:
+
+const person = {
+  _age: 37,
+  set age(newAge){
+    if (typeof newAge === 'number'){
+      this._age = newAge;
+    } else {
+      console.log('You must assign a number to age');
+    }
+  }
+};
+Notice that in the example above:
+
+We can perform a check for what value is being assigned to this._age.
+When we use the setter method, only values that are numbers will reassign this._age
+There are different outputs depending on what values are used to reassign this._age.
+Then to use the setter method:
+
+person.age = 40;
+console.log(person._age); // Logs: 40
+person.age = '40'; // Logs: You must assign a number to age
+Setter methods like age do not need to be called with a set of parentheses. Syntactically, it looks like we’re reassigning the value of a property.
+
+Like getter methods, there are similar advantages to using setter methods that include checking input, performing actions on properties, and displaying a clear intention for how the object is supposed to be used. Nonetheless, even with a setter method, it is still possible to directly reassign properties. For example, in the example above, we can still set ._age directly:
+
+person._age = 'forty-five'
+console.log(person._age); // Prints forty-five
+
+Another example:
+
+*/
+
+const theBestRobot = {
+  _model: '1E78V2',
+  _energyLevel: 100,
+  _numOfSensors: 15,
+  get numOfSensors(){
+    if(typeof this._numOfSensors === 'number'){
+      return this._numOfSensors;
+    } else {
+      return 'Sensors are currently down.'
+    }
+  },
+  set numOfSensors(num) {
+if (typeof num === 'number' && num >= 0)
+{
+  this._numOfSensors = num;
+}
+else 
+console.log('Pass in a number that is greater than or equal to 0');
+  }
+};
+
+theBestRobot.numOfSensors = 38;
+console.log(theBestRobot.numOfSensors);
+console.log(theBestRobot._model);
+console.log(theBestRobot._energyLevel);
+
+
