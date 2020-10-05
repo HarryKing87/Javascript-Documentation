@@ -980,5 +980,8 @@ team.addGame('Knicks', 43, 52);
 team.addGame('Hawks', 83, 15);
 console.log(team.games);
 
+// This was the project of "Team Stats", where you test your object, method, logging
+// and key knowledge...
+
 
 
