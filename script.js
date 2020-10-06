@@ -20,6 +20,233 @@ inside the HTML on its own, we use the appendChild method with the newHeading va
 
 */
 
+// ARRAYS
+
+/*
+
+Organizing and storing data is a foundational concept of programming.
+
+One way we organize data in real life is by making lists. Let’s make one here:
+
+New Year's Resolutions:
+
+1. Keep a journal 
+2. Take a falconry class
+3. Learn to juggle
+Let’s now write this list in JavaScript, as an array:
+
+let newYearsResolutions = ['Keep a journal', 'Take a falconry class', 'Learn to juggle'];
+Arrays are JavaScript’s way of making lists. Arrays can store any data types (including strings, numbers, and booleans). Like lists, arrays are ordered, meaning each item has a numbered position.
+
+Here’s an array of the concepts we’ll cover:
+
+let concepts = ['creating arrays', 'array structures', 'array manipulation']
+
+*/
+
+let newYearsResolutions = ['Keep a journal', 'Take a falconry class', 'Learn to juggle'];
+
+console.log(newYearsResolutions);
+
+/*
+One way we can create an array is to use an array literal. An array literal creates an array by wrapping items in square brackets []. Remember from the previous exercise, arrays can store any data type — we can have an array that holds all the same data types or an array that holds different data types.
+
+Diagram outlining an array literal that has 3 separate elements, a comma separates each element (a string, a number, and a boolean) and the elements are wrapped with square brackets
+Let’s take a closer look at the syntax in the array example:
+
+The array is represented by the square brackets [] and the content inside.
+Each content item inside an array is called an element.
+There are three different elements inside the array.
+Each element inside the array is a different data type.
+We can also save an array to a variable. You may have noticed we did this in the previous exercise:
+
+let newYearsResolutions = ['Keep a journal', 'Take a falconry class', 'Learn to juggle'];
+*/
+
+// ACCESSING ELEMENTS
+
+/*
+
+Each element in an array has a numbered position known as its index. We can access individual items using their index, which is similar to referencing an item in a list based on the item’s position.
+
+Arrays in JavaScript are zero-indexed, meaning the positions start counting from 0 rather than 1. Therefore, the first item in an array will be at position 0.
+
+*/
+
+const famousSayings = ['Fortune favors the brave.', 'A joke is a very serious thing.', 'Where there is love there is life.'];
+
+let listItem = famousSayings[0];
+console.log(listItem);
+console.log(famousSayings[2]);
+
+// Error code (prints undefined, as there is no
+// fourth element to display)
+console.log(famousSayings[3]);
+
+/*
+In the previous exercise, you learned how to access elements inside an array or a string by using an index. Once you have access to an element in an array, you can update its value.
+
+let seasons = ['Winter', 'Spring', 'Summer', 'Fall'];
+
+seasons[3] = 'Autumn';
+console.log(seasons); 
+//Output: ['Winter', 'Spring', 'Summer', 'Autumn']
+In the example above, the seasons array contained the names of the four seasons.
+
+However, we decided that we preferred to say 'Autumn' instead of 'Fall'.
+
+The line, seasons[3] = 'Autumn'; tells our program to change the item at index 3 of the seasons array to be 'Autumn' instead of what is already there.
+*/
+
+let groceryList = ['bread', 'tomatoes', 'milk'];
+
+groceryList[1] = 'avocados';
+console.log(groceryList);
+
+// ARRAYS WITH LET AND CONST
+
+/*
+
+You may recall that you can declare variables with both the let and const keywords. Variables declared with let can be reassigned.
+
+Variables declared with the const keyword cannot be reassigned. However, elements in an array declared with const remain mutable. Meaning that we can change the contents of a const array, but cannot reassign a new array or a different value.
+
+The instructions below will illustrate this concept more clearly. Pay close attention to the similarities and differences between the condiments array and the utensils array as you complete the steps.
+
+*/
+
+let condiments = ['Ketchup', 'Mustard', 'Soy Sauce', 'Sriracha'];
+
+const utensils = ['Fork', 'Knife', 'Chopsticks', 'Spork'];
+
+condiments[0] = 'Mayo';
+console.log(condiments);
+
+condiments = ['Mayo'];
+console.log(condiments);
+
+utensils[3] = 'Spoon';
+console.log(utensils);
+
+
+// THE .LENGTH PROPERTY
+
+/*
+
+One of an array’s built-in properties is length and it returns the number of items in the array. We access the .length property just like we do with strings. Check the example below:
+
+const newYearsResolutions = ['Keep a journal', 'Take a falconry class'];
+
+console.log(newYearsResolutions.length);
+// Output: 2
+In the example above, we log newYearsResolutions.length to the console using the following steps:
+
+We use dot notation, chaining a period with the property name to the array, to access the length property of the newYearsResolutions array.
+Then we log the length of newYearsResolution to the console.
+Since newYearsResolution has two elements, so 2 would be logged to the console.
+When we want to know how many elements are in an array, we can access the .length property.
+
+*/
+
+const objectives = ['Learn a new languages', 'Read 52 books', 'Run a marathon'];
+
+console.log(objectives.length);
+
+// THE .PUSH METHOD
+
+/*
+Let’s learn about some built-in JavaScript methods that make working with arrays easier. These methods are specifically called on arrays to make common tasks, like adding and removing elements, more straightforward.
+
+One method, .push() allows us to add items to the end of an array. Here is an example of how this is used:
+
+const itemTracker = ['item 0', 'item 1', 'item 2'];
+
+itemTracker.push('item 3', 'item 4');
+
+console.log(itemTracker); 
+// Output: ['item 0', 'item 1', 'item 2', 'item 3', 'item 4'];
+So, how does .push() work?
+
+We access the push method by using dot notation, connecting push to itemTracker with a period.
+Then we call it like a function. That’s because .push() is a function and one that JavaScript allows us to use right on an array.
+.push() can take a single argument or multiple arguments separated by commas. In this case, we’re adding two elements: 'item 3' and 'item 4' to itemTracker.
+Notice that .push() changes, or mutates, itemTracker. You might also see .push() referred to as a destructive array method since it changes the initial array.
+If you’re looking for a method that will mutate an array by adding elements to it, then .push() is the method for you!
+*/
+
+const chores = ['wash dishes', 'do laundry', 'take out trash'];
+
+chores.push('watch TV', 'Go outside');
+console.log(chores);
+
+// THE .POP() METHOD
+
+/*
+Another array method, .pop(), removes the last item of an array.
+
+const newItemTracker = ['item 0', 'item 1', 'item 2'];
+
+const removed = newItemTracker.pop();
+
+console.log(newItemTracker); 
+// Output: [ 'item 0', 'item 1' ]
+console.log(removed);
+// Output: item 2
+In the example above, calling .pop() on the newItemTracker array removed item 2 from the end.
+.pop() does not take any arguments, it simply removes the last element of newItemTracker.
+.pop() returns the value of the last element. In the example, we store the returned value in a variable removed to be used for later.
+.pop() is a method that mutates the initial array.
+When you need to mutate an array by removing the last element, use .pop().
+*/
+
+const chores1 = ['wash dishes', 'do laundry', 'take out trash', 'cook dinner', 'mop floor'];
+
+
+chores1.pop();
+console.log(chores1);
+
+
+// MORE ARRAY METHODS
+
+/*
+There are many more array methods than just .push() and .pop(). You can read about all of the array methods that exist on the Mozilla Developer Network (MDN) array documentation.
+
+.pop() and .push() mutate the array on which they’re called. However, there are times that we don’t want to mutate the original array and we can use non-mutating array methods. Be sure to check MDN to understand the behavior of the method you are using.
+
+Some arrays methods that are available to JavaScript developers include: .join(), .slice(), .splice(), .shift(), .unshift(), and .concat() amongst many others. Using these built-in methods make it easier to do some common tasks when working with arrays.
+
+Below, we will explore some methods that we have not learned yet. We will use these methods to edit a grocery list. As you complete the steps, you can consult the MDN documentation to learn what each method does!
+*/
+
+const groceryList = ['orange juice', 'bananas', 'coffee beans', 'brown rice', 'pasta', 'coconut oil', 'plantains'];
+
+// Removes the first item from an array
+groceryList.shift();
+console.log(groceryList);
+
+// Adds an item to the beginning of an array
+groceryList.unshift('popcorn');
+console.log(groceryList);
+
+console.log(groceryList.slice(1,4));
+/* Notice that the groceryList array still contains the same items it had in Step 2. That means .slice() is non-mutating! You can confirm this in the link in the previous step.
+*/
+console.log(groceryList);
+
+// Finds the exact place of an item inside an array
+const pastaIndex = groceryList.indexOf('pasta');
+console.log(pastaIndex);
+
+
+
+
+
+
+
+
+
+
+
 let newHeading = document.createElement("h1");
 
 newHeading.id = "header-new";
