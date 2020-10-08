@@ -238,6 +238,142 @@ const pastaIndex = groceryList.indexOf('pasta');
 console.log(pastaIndex);
 
 
+// MUTATED ARRAYS
+
+/*
+Throughout the lesson we went over arrays being mutable, or changeable. Well what happens if we try to change an array inside a function? Does the array keep the change after the function call or is it scoped to inside the function?
+
+Take a look at the following example where we call .push() on an array inside a function. Recall, the .push() method mutates, or changes, an array:
+
+const flowers = ['peony', 'daffodil', 'marigold'];
+
+function addFlower(arr) {
+  arr.push('lily');
+}
+
+addFlower(flowers);
+
+console.log(flowers); // Output: ['peony', 'daffodil', 'marigold', 'lily']
+Let’s go over what happened in the example:
+
+The flowers array that has 3 elements.
+The function addFlower() has a parameter of arr uses .push() to add a 'lily' element into arr.
+We call addFlower() with an argument of flowers which will execute the code inside addFlower.
+We check the value of flowers and it now includes the 'lily' element! The array was mutated!
+So when you pass an array into a function, 
+if the array is mutated inside the function, 
+that change will be maintained outside the function 
+as well. You might also see this concept explained as 
+pass-by-reference since what we’re actually passing the 
+function is a reference to where the variable memory 
+is stored and changing the memory.
+*/
+
+const concept = ['arrays', 'can', 'be', 'mutated'];
+
+const fruits = ['apple', 'orange', 'pear'];
+
+function changeArr(arr){
+  arr[3] = 'MUTATED';
+}
+
+fruitAdd = (newFruit) => {
+fruits.push('banana');
+};
+
+fruitAdd(fruits);
+console.log(fruits);
+
+changeArr(concept);
+
+console.log(concept);
+
+removeElement = (newArr) => {
+newArr.pop();
+};
+
+removeElement(concept);
+console.log(concept);
+
+// NESTED ARRAYS
+
+/*
+Earlier we mentioned that arrays can store other arrays. When an array contains another array it is known as a nested array. Examine the example below:
+
+const nestedArr = [[1], [2, 3]];
+To access the nested arrays we can use bracket notation with the index value, just like we did to access any other element:
+
+const nestedArr = [[1], [2, 3]];
+
+console.log(nestedArr[1]); // Output: [2, 3]
+Notice that nestedArr[1] will grab the element in index 1 which is the array [2, 3]. Then, if we wanted to access the elements within the nested array we can chain, or add on, more bracket notation with index values.
+
+const nestedArr = [[1], [2, 3]];
+
+console.log(nestedArr[1]); // Output: [2, 3]
+console.log(nestedArr[1][0]); // Output: 2
+In the second console.log() statement, we have 
+two bracket notations chained to nestedArr. 
+We know that nestedArr[1] is the array [2, 3]. 
+Then to grab the first element from that array, 
+we use nestedArr[1][0] and we get the value of 2.
+*/
+
+const numberClusters = [[1,2], [3,4], [5,6]];
+const target = numberClusters[2][1];
+console.log(target);
+
+
+// PROJECT
+
+/*
+Using array methods, you will transform an array of strings into a secret message!
+
+You should consult the Mozilla Developer Network (MDN) 
+for reference on any method with which you are not 
+familiar.
+
+1.
+Use an array method to remove the last string of the array secretMessage.
+
+2.
+Great! You can check your work by logging the .length of the array.
+At this point, the length should be 1 less than the original length.
+
+3.
+Use an array method to add the words to and Program as separate strings to the end of the secretMessage array.
+
+4.
+Change the word easily to the word right by accessing the index and replacing it.
+
+5.
+Use an array method to remove the first string of the array.
+
+6.
+Use an array method to add the string Programming to the beginning of the array.
+
+7.
+Use an array method to remove the strings get, right, the, first, time,, and replace them with the single string know,.
+
+
+Answer down below:
+*/
+
+let secretMessage = ['Learning', 'is', 'not', 'about', 'what', 'you', 'get', 'easily', 'the', 'first', 'time,', 'it', 'is', 'about', 'what', 'you', 'can', 'figure', 'out.', '-2015,', 'Chris', 'Pine,', 'Learn', 'JavaScript'];
+
+secretMessage.pop();
+
+secretMessage.push('to', 'Program');
+
+secretMessage[7] = 'right';
+
+secretMessage.shift();
+secretMessage.unshift('Programming');
+secretMessage.splice(6,8, 'know, but');
+console.log(secretMessage);
+console.log(secretMessage.join());
+
+
 
 
 
