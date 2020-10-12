@@ -512,7 +512,7 @@ console.log('Both people have ' + mutualFollowers + ' as friends');
 // WHILE LOOP
 
 /*
-The while loop
+The while loop...
 */
 
 
