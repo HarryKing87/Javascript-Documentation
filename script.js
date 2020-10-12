@@ -509,7 +509,7 @@ for (let i = 0; i < bobsFollowers.length; i++) {
 }
 console.log('Both people have ' + mutualFollowers + ' as friends');
 
-
+// WHILE LOOP
 
 
 
