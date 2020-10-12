@@ -512,11 +512,195 @@ console.log('Both people have ' + mutualFollowers + ' as friends');
 // WHILE LOOP
 
 /*
-The while loop...
+// A for loop that prints 1, 2, and 3
+for (let counterOne = 1; counterOne < 4; counterOne++){
+  console.log(counterOne);
+}
+
+// A while loop that prints 1, 2, and 3
+let counterTwo = 1;
+while (counterTwo < 4) {
+  console.log(counterTwo);
+  counterTwo++;
+}
+Let’s break down what’s happening with our while loop syntax:
+
+The counterTwo variable is declared before the loop. We can access it inside our while loop since it’s in the global scope.
+We start our loop with the keyword while followed by our stopping condition, or test condition. This will be evaluated before each round of the loop. While the condition evaluates to true, the block will continue to run. Once it evaluates to false the loop will stop.
+Next, we have our loop’s code block which prints counterTwo to the console and increments counterTwo.
+What would happen if we didn’t increment counterTwo inside our block? If we didn’t include this, counterTwo would always have its initial value, 1. That would mean the testing condition counterTwo < 4 would always evaluate to true and our loop would never stop running! This is called an infinite loop and it’s something we always want to avoid. Infinite loops can take up all of your computer’s processing power potentially freezing your computer.
+
+So you may be wondering when to use a while loop! The syntax of a for loop is ideal when we know how many times the loop should run, but we don’t always know this in advance. Think of eating like a while loop: when you start taking bites, you don’t know the exact number you’ll need to become full. Rather you’ll eat while you’re hungry. In situations when we want a loop to execute an undetermined number of times, while loops are the best choice.
 */
 
+const cards = ['diamond', 'spade', 'heart', 'club'];
+
+let currentCard;
+while (currentCard != 'spade')
+{
+  currentCard = cards[Math.floor(Math.random() * 4)];
+  console.log(currentCard);
+}
+
+// DO...WHILE LOOPS
+
+/*
+In some cases, you want a piece of code to run at least once and then loop based on a specific condition after its initial run. This is where the do...while statement comes in.
+
+A do...while statement says to do a task once and then keep doing it until a specified condition is no longer met. The syntax for a do...while statement looks like this:
+
+let countString = '';
+let i = 0;
+
+do {
+  countString = countString + i;
+  i++;
+} while (i < 5);
+
+console.log(countString);
+In this example, the code block makes changes to the countString variable by appending the string form of the i variable to it. First, the code block after the do keyword is executed once. Then the condition is evaluated. If the condition evaluates to true, the block will execute again. The looping stops when the condition evaluates to false.
+
+Note that the while and do...while loop are different! Unlike the while loop, do...while will run at least once whether or not the condition evaluates to true.
+
+const firstMessage = 'I will print!';
+const secondMessage = 'I will not print!'; 
+
+// A do while with a stopping condition that evaluates to false
+do {
+ console.log(firstMessage)
+} while (true === false);
+
+// A while loop with a stopping condition that evaluates to false
+while (true === false){
+  console.log(secondMessage)
+};
+*/
+
+let cupsOfSugarNeeded = 5;
+let cupsAdded = 0;
+
+do {
+cupsAdded++;
+} while (cupsAdded < cupsOfSugarNeeded);
+console.log(cupsAdded);
 
 
+// BREAK
+
+/*
+Imagine we’re looking to adopt a dog. We plan to go to the shelter every day for a year and then give up. But what if we meet our dream dog on day 65? We don’t want to keep going to the shelter for the next 300 days just because our original plan was to go for a whole year. In our code, when we want to stop a loop from continuing to execute even though the original stopping condition we wrote for our loop hasn’t been met, we can use the keyword break.
+
+The break keyword allows programs to “break” out of the loop from within the loop’s block.
+
+Let’s check out the syntax of a break keyword:
+
+for (let i = 0; i < 99; i++) {
+  if (i > 2 ) {
+     break;
+  }
+  console.log('Banana.');
+}
+
+console.log('Orange you glad I broke out the loop!');
+This is the output for the above code:
+
+Banana.
+Banana.
+Banana.
+Orange you glad I broke out the loop!
+break statements can be especially helpful when we’re looping through large data structures! With breaks, we can add test conditions besides the stopping condition, and exit the loop when they’re met.
+*/
+
+const rapperArray = ["Lil' Kim", "Jay-Z", "Notorious B.I.G.", "Tupac"];
+
+for (let i = 0; i < rapperArray.length; i++)
+{
+  console.log(rapperArray[i]);
+  if (rapperArray[i] === "Notorious B.I.G.") {
+    break;
+  }
+};
+
+  console.log("And if you don't know, now you know.");
+
+// HIGHER-ORDER FUNCTIONS
+
+/*
+JavaScript functions behave like any other data type in the language; we can assign functions to variables, and we can reassign them to new variables.
+
+Below, we have an annoyingly long function name that hurts the readability of any code in which it’s used. Let’s pretend this function does important work and needs to be called repeatedly!
+
+const announceThatIAmDoingImportantWork = () => {
+    console.log("I’m doing very important work!");
+};
+What if we wanted to rename this function without sacrificing the source code? We can re-assign the function to a variable with a suitably short name:
+
+const busy = announceThatIAmDoingImportantWork;
+
+busy(); // This function call barely takes any space!
+busy is a variable that holds a reference to our original function. If we could look up the address in memory of busy and the address in memory of announceThatIAmDoingImportantWork they would point to the same place. Our new busy() function can be invoked with parentheses as if that was the name we originally gave our function.
+
+Notice how we assign announceThatIAmDoingImportantWork without parentheses as the value to the busy variable. We want to assign the value of the function itself, not the value it returns when invoked.
+
+In JavaScript, functions are first class objects. This means that, like other objects you’ve encountered, JavaScript functions can have properties and methods.
+
+Since functions are a type of object, they have properties such as .length and .name and methods such as .toString(). You can see more about the methods and properties of functions in the documentation.
+
+Functions are special because we can invoke them, but we can still treat them like any other type of data. Let’s get some practice doing that!
+*/
+
+const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
+  for(let i = 1; i <= 1000000; i++) {
+    if ( (2 + 2) != 4) {
+      console.log('Something has gone very wrong :( ');
+    }
+  }
+}
+
+const is2p2 = checkThatTwoPlusTwoEqualsFourAMillionTimes;
+
+is2p2();
+// Here we check, what's the name of the function we took the name is2p2 from?!
+console.log(is2p2.name);
+
+
+// forEach Method
+
+/*
+The first iteration method that we’re going to learn is .forEach(). Aptly named, .forEach() will execute the same code for each element of an array.
+Diagram outlining the parts of an array iterator including the array identifier, the section that is the iterator, and the callback function
+
+The code above will log a nicely formatted list of the groceries to the console. Let’s explore the syntax of invoking .forEach().
+
+groceries.forEach() calls the forEach method on the groceries array.
+.forEach() takes an argument of callback function. Remember, a callback function is a function passed as an argument into another function.
+.forEach() loops through the array and executes the callback function for each element. During each execution, the current element is passed as an argument to the callback function.
+The return value for .forEach() will always be undefined.
+Another way to pass a callback for .forEach() is to use arrow function syntax.
+
+groceries.forEach(groceryItem => console.log(groceryItem));
+We can also define a function beforehand to be used as the callback function.
+
+function printGrocery(element){
+  console.log(element);
+}
+
+groceries.forEach(printGrocery);
+The above example uses a function declaration but you can also use a function expression or arrow function as well.
+
+All three code snippets do the same thing. In each array iteration method, we can use any of the three examples to supply a callback function as an argument to the iterator. It’s good to be aware of the different ways to pass in callback functions as arguments in iterators because developers have different stylistic preferences. Nonetheless, due to the strong adoption of ES6, we will be using arrow function syntax in the later exercises.
+*/
+
+const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
+
+function printFruits (fruits)
+{
+  console.log('I want to eat a ' + fruits);
+}
+
+fruits.forEach(printFruits);
+// I remind you that we can always do the same thing with a for loop, but in this example I'm showing you
+// the use of the functions and forEach method...
 
 
 
