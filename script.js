@@ -523,6 +523,7 @@ console.log('Both people have ' + mutualFollowers + ' as friends');
 
 
 
+
 let newHeading = document.createElement("h1");
 
 newHeading.id = "header-new";
