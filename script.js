@@ -710,7 +710,6 @@ fruits.forEach(printFruits);
 
 
 
-
 let newHeading = document.createElement("h1");
 
 newHeading.id = "header-new";
