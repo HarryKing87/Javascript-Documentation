@@ -1683,5 +1683,41 @@ console.log(team.games);
 // *** INTRODUCTION TO REACT ***
 
 /*
+React.js is a JavaScript library. It was developed by engineers at Facebook.
 
+Here are just a few of the reasons why people choose to program with React:
+
+React is fast. Apps made in React can handle complex updates and still feel quick and responsive.
+React is modular. Instead of writing large, dense files of code, you can write many smaller, reusable files. React’s modularity can be a beautiful solution to JavaScript’s maintainability problems.
+React is scalable. Large programs that display a lot of changing data are where React performs best.
+React is flexible. You can use React for interesting projects that have nothing to do with making a web app. People are still figuring out React’s potential. There’s room to explore.
+React is popular. While this reason has admittedly little to do with React’s quality, the truth is that understanding React will make you more employable.
+If you are new to React, then this course is for you! No prior React knowledge is expected. We will start at the very beginning and move slowly.
+
+If you are new to JavaScript, then consider taking our JavaScript course and then returning to React.
+
+The Codecademy React courses are not a high-level overview. They are a deep dive. Take your time! By the end, you will be ready to program in React with a real understanding of what you’re doing.
+*/
+
+/*
+Take a look at the following line of code:
+
+const h1 = <h1>Hello world</h1>;
+What kind of weird hybrid code is that? Is it JavaScript? HTML? Or something else?
+
+It seems like it must be JavaScript, since it starts with const and ends with ;. If you tried to run that in an HTML file, it wouldn’t work.
+
+However, the code also contains <h1>Hello world</h1>, which looks exactly like HTML. That part wouldn’t work if you tried to run it in a JavaScript file.
+
+What’s going on?
+*/
+
+/*
+Take another look at the line of code that you wrote.
+
+Does this code belong in a JavaScript file, an HTML file, or somewhere else?
+
+The answer is…a JavaScript file! Despite what it looks like, your code doesn’t actually contain any HTML at all.
+
+The part that looks like HTML, <h1>Hello world</h1>, is something called JSX.
 */
