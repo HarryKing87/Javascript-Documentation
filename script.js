@@ -780,7 +780,12 @@ Inside of the constructor() method, we use the this keyword. In the context of a
 Under this.name, we create a property called behavior, which will keep track of the number of times a dog misbehaves. The behavior property is always initialized to zero.
 */
 
-
+class Surgeon {
+  constructor(name, department) {
+    this.name = name;
+    this.department = department;
+  }
+}
 
 
 
