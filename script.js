@@ -704,6 +704,94 @@ fruits.forEach(printFruits);
 
 
 
+// CLASSES
+
+/*
+Classes are a tool that developers use to quickly produce similar objects.
+
+Take, for example, an object representing a dog named halley. This dog’s name (a key) is "Halley" (a value) and has an age (another key) of 3 (another value). We create the halley object below:
+
+let halley = {
+  _name: 'Halley',
+  _behavior: 0,
+
+  get name() {
+    return this._name;
+  },
+
+  get behavior() {
+    return this._behavior;
+  },
+
+  incrementBehavior() {
+    this._behavior++;
+  }
+}
+Now, imagine you own a dog daycare and want to create a catalog of all the dogs who belong to the daycare. Instead of using the syntax above for every dog that joins the daycare, we can create a Dog class that serves as a template for creating new Dog objects. For each new dog, you can provide a value for their name.
+
+As you can see, classes are a great way to reduce duplicate code and debugging time.
+
+After we lay the foundation for classes in the first few exercises, we will introduce inheritance and static methods — two features that will make your code more efficient and meaningful.
+*/
+
+class Dog {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+
+  get name() {
+    return this._name;
+  }
+  get behavior() {
+    return this._behavior;
+  }   
+
+  incrementBehavior() {
+    this._behavior ++;
+  }
+}
+
+Dog.name;
+const halley = new Dog('Halley');
+console.log(halley.name); // Print name value to console
+console.log(halley.behavior); // Print behavior value to console
+halley.incrementBehavior(); // Add one to behavior
+console.log(halley.name); // Print name value to console
+console.log(halley.behavior); // Print behavior value to console
+
+// CONSTRUCTOR
+
+/*
+In the last exercise, you created a class called Dog, and used it to produce a Dog object.
+
+Although you may see similarities between class and object syntax, there is one important method that sets them apart. It’s called the constructor method. JavaScript calls the constructor() method every time it creates a new instance of a class.
+
+class Dog {
+  constructor(name) {
+    this.name = name;
+    this.behavior = 0;
+  }
+}
+Dog is the name of our class. By convention, we capitalize and CamelCase class names.
+JavaScript will invoke the constructor() method every time we create a new instance of our Dog class.
+This constructor() method accepts one argument, name.
+Inside of the constructor() method, we use the this keyword. In the context of a class, this refers to an instance of that class. In the Dog class, we use this to set the value of the Dog instance’s name property to the name argument.
+Under this.name, we create a property called behavior, which will keep track of the number of times a dog misbehaves. The behavior property is always initialized to zero.
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
