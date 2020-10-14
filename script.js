@@ -816,13 +816,30 @@ class newSurgeon {
 }
 
 const surgeonCurry = new newSurgeon('Curry', 'Cardiovascular');
-
 const surgeonDurant = new newSurgeon('Durant', 'Orthopedics');
+const surgeonHarry = new newSurgeon ('Harry', 'Pedology');
 
 
+class department {
+  constructor(name, staffNumber) {
+this.name = name;
+this.staffNumber = staffNumber;
+  }
 
+  get name() {
+    return this.name;
+  }
 
+  get staffNumber() {
+    return this.staffNumber;
+  }
 
+  
+}
+
+const cardiovascularDep = new department('Cardiovascular', 13);
+const orthopedicsDep = new department('Orthopedics', 10);
+const pedologyDep = new department('Pedology', 8);
 
 
 
