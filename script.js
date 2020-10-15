@@ -1031,6 +1031,47 @@ The diagram to the right shows the relationships we want to create between the A
 
 
 
+// INHERITANCE 2
+
+/*
+In this exercise, we must create a class that has inheritance... The class is called HospitalEmployee...
+*/
+
+class HospitalEmployee {
+  constructor(name) {
+    this._name = name;
+    this._remainingVacationDays = 20;
+    this._insurance;
+  }
+
+  takeVacationDays(daysOff){
+    this._remainingVacationDays -= daysOff;
+  }
+
+  get name() {
+    return this._name;
+  }
+  get remainingVacationDays() {
+    return this._remainingVacationDays;
+  }
+
+
+}
+
+
+// Down below, we are making a simple example. We create a new instance of an employee, called John...
+// After we create the employee, we log him to the console to have his own report of name and vacationDays
+// John wishes to take three days of vacation, that's why we take the vacationDays method and have an argument
+// of 3 between the parentheses. Finally, we log John's remaining vacation days to the console and as
+// the starting vacation days were 20, now that John has taken three days, the console should display 17.
+let John = new HospitalEmployee('John');
+console.log(John);
+John.takeVacationDays(3);
+console.log(John.remainingVacationDays);
+
+
+
+
 
 
 
