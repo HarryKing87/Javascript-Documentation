@@ -1037,7 +1037,7 @@ The diagram to the right shows the relationships we want to create between the A
 In this exercise, we must create a class that has inheritance... The class is called HospitalEmployee...
 */
 
-class HospitalEmployee {
+class HospitalEmployee1 {
   constructor(name) {
     this._name = name;
     this._remainingVacationDays = 20;
@@ -1064,7 +1064,7 @@ class HospitalEmployee {
 // John wishes to take three days of vacation, that's why we take the vacationDays method and have an argument
 // of 3 between the parentheses. Finally, we log John's remaining vacation days to the console and as
 // the starting vacation days were 20, now that John has taken three days, the console should display 17.
-let John = new HospitalEmployee('John');
+let John = new HospitalEmployee1('John');
 console.log(John);
 John.takeVacationDays(3);
 console.log(John.remainingVacationDays);
@@ -1117,11 +1117,150 @@ In the example above, we create a new instance the Cat class, named bryceCat. We
 In the example above, we abandoned best practices by calling our _name property directly. In the next exercise, we’ll address this by calling an inherited getter method for our name property.
 */
 
+class HospitalEmployee {
+  constructor(name) {
+    this._name = name;
+    this._remainingVacationDays = 20;
+  }
+  
+  get name() {
+    return this._name;
+  }
+  
+  get remainingVacationDays() {
+    return this._remainingVacationDays;
+  }
+  
+  takeVacationDays(daysOff) {
+    this._remainingVacationDays -= daysOff;
+  }
+}
+
+class Nurse extends HospitalEmployee {
+  constructor(name, certifications) {
+    Nurse._remainingVacationDays = 20;
+    Nurse._name = name;
+    super(name);
+    Nurse._certifications = certifications;
+  }
+};
+
+const nurseOlynyk = new Nurse('Olynyk', ['Trauma', 'Pediatrics']);
+console.log(nurseOlynyk);
+console.log('Nurse Olynyk wishes to have four days of vacation');
+nurseOlynyk.takeVacationDays(4);
+console.log('Nurse Olynyk now has ' + nurseOlynyk.remainingVacationDays);
+
+
+// INHERITANCE 4
+
+/*
+In addition to the inherited features, child classes can contain their own properties, getters, setters, and methods.
+
+Below, we will add a usesLitter getter. The syntax for creating getters, setters, and methods is the same as it is in any other class.
+
+class Cat extends Animal {
+  constructor(name, usesLitter) {
+    super(name);
+    this._usesLitter = usesLitter;
+  }
+
+  get usesLitter() {
+    return this._usesLitter;
+  }
+}
+In the example above, we create a usesLitter getter in the Cat class that returns the value saved to _usesLitter.
+
+Compare the Cat class above to the one we created without inheritance:
+
+class Cat {
+  constructor(name, usesLitter) {
+    this._name = name;
+    this._usesLitter = usesLitter;
+    this._behavior = 0;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  get usesLitter() {
+    return this._usesLitter;
+  }
+
+  get behavior() {
+    return this._behavior;
+  }   
+
+  incrementBehavior() {
+    this._behavior++;
+  }
+}
+We decreased the number of lines required to create the Cat class by about half. Yes, it did require an extra class (Animal), making the reduction in the size of our Cat class seem moot. However, the benefits (time saved, readability, efficiency) of inheritance grow as the number and size of your subclasses increase.
+
+One benefit is that when you need to change a method or property that multiple classes share, you can change the parent class, instead of each subclass.
+
+Before we move past inheritance, take a moment to see how we would create an additional subclass, called Dog.
+
+class Dog extends Animal {
+  constructor(name) {
+    super(name);
+  }
+}
+This Dog class has access to the same properties, getters, setters, and methods as the Dog class we made without inheritance, and is a quarter the size.
+
+Now that we’ve abstracted animal daycare features, it’s easy to see how you can extend Animal to support other classes, like Rabbit, Bird or even Snake.
+*/
+
+
+class HospitalEmployee {
+  constructor(name) {
+    this._name = name;
+    this._remainingVacationDays = 20;
+  }
+  
+  get name() {
+    return this._name;
+  }
+  
+  get remainingVacationDays() {
+    return this._remainingVacationDays;
+  }
+  
+  takeVacationDays(daysOff) {
+    this._remainingVacationDays -= daysOff;
+  }
+}
+
+class Nurse extends HospitalEmployee {
+  constructor(name, certifications) {
+    super(name);
+    this._certifications = certifications;
+    this._remainingVacationDays = 20;
+  }
+  get certifications() {
+    return this._certifications;
+  }
+
+  takeVacationDays() {
+
+  }
+
+  addCertification(newCertification) {
+this._certifications.push(newCertification);
+  } 
+}
+
+const nurseOlynyk = new Nurse('Olynyk', ['Trauma','Pediatrics']);
+nurseOlynyk.takeVacationDays(5);
+console.log(nurseOlynyk.remainingVacationDays);
 
 
 
 
 
+nurseOlynyk.addCertification('Genetics');
+console.log(nurseOlynyk.certifications);
 
 
 
