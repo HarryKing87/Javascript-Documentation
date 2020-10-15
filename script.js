@@ -1,24 +1,43 @@
 //GITHUB
-/* We'd like to create a new HTML element in the index.html file...
-So, I've first created a variable (newHeading), that nests inside a new 
-element creation. Basically, I tell the program to create a new element (createElement),
-which will be a new heading (h1) and then this element will be displayed in the document.
+/*
+Hello and welcome to my Javascript Documentation... Javascript is ranked on the first place of my favorite programming languages list
+and with this documentation, I hope you can learn along with me. (When I was learning it)
 
-
-After that, we want the new variable (newHeading) to have a specific id in our HTML file
-which will be called "header-new". Specifically, the newHeading (which we declared on line 22)
-will be used to create the new id as shown on line 24.
-
-Same, we will use the newHeading variable to edit the inside of the element we created.
-So, inside the newHeading, we'll be editing the innerHTML, which will display "This is a new header".
-
-
-
-Finally, as the createElement method (Line 22) can't just put the edited and added element
-inside the HTML on its own, we use the appendChild method with the newHeading variable to insert the new element into our HTML file.
-
-
+There will be ups and downs cause nothing can be easily learned unless someone wants to and gives their all to achieve their dreams.
+But enough with the talking... Let's Start!!
 */
+
+// Javascript variables can be assigned with the ways below...
+
+// Before 2015, using the var keyword was the only way to declare a JavaScript variable.
+var x = 1;
+
+// The 2015 version of JavaScript (ES6 - ECMAScript 2015) allows the use of the const keyword to define a variable that cannot be reassigned, and the let keyword to define a variable with restricted scope.
+let y = 2;
+const z = 3;
+
+// We can clearly add,subtract, multiply and divide each variable with numbers etc.
+
+var a = 10;
+var b = 5;
+var c = a + b; // In the plus's place the -, / or * could be depending on the things you want to do.
+
+// Javascript Data Types
+var length = 16;                               // Number
+var lastName = "Johnson";                      // String
+var obj = {firstName:"John", lastName:"Doe"};    // Object
+
+// FUNCTIONS
+
+/*
+A JavaScript function is a block of code designed to perform a particular task.
+
+A JavaScript function is executed when "something" invokes it (calls it).
+*/
+
+function myFunction(p1, p2) {
+  return p1 * p2;   // The function returns the product of p1 and p2
+}
 
 // ARRAYS
 
@@ -1335,17 +1354,184 @@ The example above will result in an error, because you cannot call static method
 */
 
 
+class AnotherHospitalEmployee {
+  constructor(name) {
+    this._name = name;
+    this._remainingVacationDays = 20;
+  }
+  
+  get name() {
+    return this._name;
+  }
+  
+  get remainingVacationDays() {
+    return this._remainingVacationDays;
+  }
+  
+  takeVacationDays(daysOff) {
+    this._remainingVacationDays -= daysOff;
+  }
+
+  static generatePassword() {
+    return Math.floor(Math.random() * 10000);
+  }
+}
+
+class Nurse extends AnotherHospitalEmployee {
+  constructor(name, certifications) {
+    super(name);
+    this._certifications = certifications;
+  } 
+  
+  get certifications() {
+    return this._certifications;
+  }
+  
+  addCertification(newCertification) {
+    this.certifications.push(newCertification);
+  }
+}
+
+const nurseOlynyk = new Nurse('Olynyk', ['Trauma','Pediatrics']);
+nurseOlynyk.takeVacationDays(5);
+console.log(nurseOlynyk.remainingVacationDays);
+nurseOlynyk.addCertification('Genetics');
+console.log(nurseOlynyk.certifications);
+
+console.log(HospitalEmployee.generatePassword());
+
+
+// BIG PROJECT ON CLASSES
+
+/*
+Book
+
+Properties: author (string), title (string), pages (number), isCheckedOut (boolean, initially false), and ratings (array, initially empty).
+Getters: all properties have a getter
+Methods: .getAverageRating(), .toggleCheckOutStatus(), and .addRating()
+
+Movie
+
+Properties: director (string), title (string), runTime (number), isCheckedOut (boolean, initially false), and ratings (array, initially empty)
+Getters: all properties have a getter
+Methods: .getAverageRating(), .toggleCheckOutStatus(), and .addRating()
+
+CD
+
+Properties: artist (string), title (string), isCheckedOut (boolean, initially false), and ratings (array, initially empty), songs (array of strings)
+Getters: all properties have a getter
+Methods: .getAverageRating(), .toggleCheckOutStatus(), and .addRating()
+*/
+
+class Media {
+  constructor(title) {
+this._title = title;
+this._isCheckedOut = false;
+this._ratings = [];
+  }
+
+  get title() {
+    return this._title;
+  }
+  get isCkeckedOut() {
+    return this._isCheckedOut;
+  }
+  get ratings() {
+    return this._ratings;
+  }
+
+  toggleCheckOutStatus(){
+    this._isCheckedOut = !this._isCheckedOut;
+  }
+
+
+  getAverageRating() {
+    let ratingsSum = this.ratings.reduce((currentSum, rating) => currentSum + rating, 0)/this._ratings.length;
+     return ratingsSum;
+  }
+
+
+  addRating(ratings) {
+this._ratings.push(ratings);
+  }
+
+  
+}
+
+class Book extends Media {
+constructor(author, title, pages) {
+  super(title);
+  this._author = author;
+  this._pages = pages;
+}
+
+//Getters
+get author() {
+  return this._author;
+}
+get pages() {
+  return this._pages;
+}
+
+}
+
+class Movie extends Media {
+  constructor(director, title, runTime) {
+super(title);
+this._director = director;
+this._runTime = runTime;
+  }
+  get director() {
+    return this._director;
+  }
+  get runTime() {
+    return this._runTime;
+  }
+}
+
+const historyOfEverything = new Book('Bill Bryson', 'A short history of nearly everything', 544);
+console.log(historyOfEverything);
+historyOfEverything.toggleCheckOutStatus();
+historyOfEverything.addRating(4);
+historyOfEverything.addRating(5);
+historyOfEverything.addRating(5);
+historyOfEverything.getAverageRating();
+console.log(historyOfEverything.getAverageRating())
+
+
+//Movie Instance
+
+const speed = new Movie('Jan de Bont', 'Speed', 116);
+console.log(speed);
+speed.toggleCheckOutStatus();
+speed.addRating(1);
+speed.addRating(1);
+speed.addRating(5);
+speed.getAverageRating();
+console.log(speed.getAverageRating());
 
 
 
 
+// THE BROWSER
+/* We'd like to create a new HTML element in the index.html file...
+So, I've first created a variable (newHeading), that nests inside a new 
+element creation. Basically, I tell the program to create a new element (createElement),
+which will be a new heading (h1) and then this element will be displayed in the document.
+
+
+After that, we want the new variable (newHeading) to have a specific id in our HTML file
+which will be called "header-new". Specifically, the newHeading (which we declared on line 22)
+will be used to create the new id as shown on line 24.
+
+Same, we will use the newHeading variable to edit the inside of the element we created.
+So, inside the newHeading, we'll be editing the innerHTML, which will display "This is a new header".
 
 
 
-
-
-
-
+Finally, as the createElement method (Line 22) can't just put the edited and added element
+inside the HTML on its own, we use the appendChild method with the newHeading variable to insert the new element into our HTML file.
+*/
 
 let newHeading = document.createElement("h1");
 
