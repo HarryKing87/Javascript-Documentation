@@ -1342,6 +1342,11 @@ The example above will result in an error, because you cannot call static method
 
 
 
+
+
+
+
+
 let newHeading = document.createElement("h1");
 
 newHeading.id = "header-new";
@@ -1791,6 +1796,71 @@ const robot = {
 };
 
 console.log(robot.provideInfo());
+
+// Object Example from simlpe to complex
+const starship = {
+  name: 'BigShip',
+  model: '1FJ23',
+  staffCapacity: 32,
+  yearBuilt: 1987
+  };
+  
+  console.log(starhip.yearBuilt);
+  // Logs 1987
+  
+  // If we want to create a more complex object then...
+  
+  const ship = {
+     smallShip: {
+      name: 'Black Pearl',
+      yearBuilt: 1889,
+  
+      mediumShip: {
+        name: 'White Pearl',
+        yearBuilt: 1900
+      },
+      largeShip: {
+        name: 'Leviathan',
+        yearBuilt: 1950
+      }
+    },
+    crew: {
+      captain: {
+        name: 'Captain John',
+        age: 43,
+        yearsOnShip: 19
+      },
+      shooters: {
+        shooter1: {
+          name: 'Mr. Jingles',
+          age: 30,
+          yearsOnShip: 2
+        },
+        shooter2: {
+          name: 'Olaf',
+          age: 29,
+          yearsOnShip: 3
+        }
+      },
+      technicians: {
+        technician1: {
+          name: 'Markus',
+          age: 43,
+          yearsOnShip: 2,
+          experienceYears: 6
+        },
+        technician2: {
+          name: 'Alex',
+          age: 47,
+          yearsOnShip: 1,
+          experienceYears: 8
+        }
+      }
+    }
+    
+  }
+  
+  console.log(ship.crew.technicians.technician2);
 
 // ARROW FUNCTIONS AND THIS.
 
