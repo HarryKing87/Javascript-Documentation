@@ -935,7 +935,38 @@ console.log(bradford.behavior); // Logs 0 to the console
 In the example above, we create two new Dog instances, nikko and bradford. Because we increment the behavior of our nikko instance, but not bradford, accessing nikko.behavior returns 1 and accessing bradford.behavior returns 0.
 */
 
+class anotherSurgeon {
+  constructor(name, department) {
+    this._name = name;
+    this._department = department;
+    this._remainingVacationDays = 20;
+  }
+  
+  get name() {
+    return this._name;
+  }
+  
+  get department() {
+    return this._department;
+  }
+  
+  get remainingVacationDays() {
+    return this._remainingVacationDays;
+  }
+  
+  takeVacationDays(daysOff) {
+    this._remainingVacationDays -= daysOff;
+  }
+}
 
+const surgeonCurry = new anotherSurgeon('Curry', 'Cardiovascular');
+const surgeonDurant = new anotherSurgeon('Durant', 'Orthopedics');
+
+console.log(surgeonCurry.name);
+
+surgeonCurry.takeVacationDays(3);
+
+console.log(surgeonCurry.remainingVacationDays);
 
 
 
