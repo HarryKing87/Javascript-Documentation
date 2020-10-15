@@ -1262,6 +1262,44 @@ console.log(nurseOlynyk.remainingVacationDays);
 nurseOlynyk.addCertification('Genetics');
 console.log(nurseOlynyk.certifications);
 
+// Another Example
+class Employee {
+  constructor(name, age) {
+    this._name = name;
+    this._age = age;
+  }
+   
+  get name() {
+    return this._name;
+  }
+
+  get age() {
+    return this._age
+  }
+}
+
+class technician extends Employee {
+  constructor(name, age)
+  {
+    super(name,age);
+    // We don't have to add a third argument as "Department", because we have already added it in the 
+    // constructor with a value of "Technical Department".
+    this._department = 'Technical Department';
+  }
+  get name() {
+  return this._name;
+  }
+
+  get age() {
+    return this._age;
+  }
+
+  // We don't even need a method of get for the department...
+}
+
+let Harry = new technician('Harry', 23);
+console.log(Harry);
+
 
 // STATIC METHODS
 
